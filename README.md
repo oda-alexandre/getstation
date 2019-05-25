@@ -37,7 +37,7 @@ Installer [docker](https://www.docker.com)
 ## INSTALLATION
 
 ```
-docker run -d --name getstation -v ${HOME}/Downloads:/home/getstation/Downloads -v /tmp/.X11-unix/:/tmp/.X11-unix/ -v /dev/snd:/dev/snd -v /dev/shm:/dev/shm -v /var/run/dbus:/var/run/dbus -e PULSE_SERVER=unix:${XDG_RUNTIME_DIR}/pulse/native -v ${XDG_RUNTIME_DIR}/pulse/native:${XDG_RUNTIME_DIR}/pulse/native --group-add $(getent group audio | cut -d: -f3) -v /lib/modules:/lib/modules --privileged --cap-add=ALL -e DISPLAY alexandreoda/getstation
+docker run -d --name getstation -v ${HOME}/Downloads:/home/getstation/Downloads -v /tmp/.X11-unix/:/tmp/.X11-unix/ -v /dev/snd:/dev/snd -v /dev/shm:/dev/shm -v /var/run/dbus:/var/run/dbus -v /etc/localtime:/etc/localtime:ro -e PULSE_SERVER=unix:${XDG_RUNTIME_DIR}/pulse/native -v ${XDG_RUNTIME_DIR}/pulse/native:${XDG_RUNTIME_DIR}/pulse/native --group-add $(getent group audio | cut -d: -f3) -v /lib/modules:/lib/modules --privileged --cap-add=ALL -e DISPLAY alexandreoda/getstation
 ```
 
 
