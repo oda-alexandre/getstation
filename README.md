@@ -1,0 +1,2 @@
+# getstation
+getstation via docker
