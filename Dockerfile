@@ -12,7 +12,6 @@ ENV DEBIAN_FRONTEND noninteractive
 RUN apt-get update && apt-get install -y --no-install-recommends \
 sudo \
 ca-certificates \
-locales \
 dirmngr \
 wget \
 fuse \
@@ -30,9 +29,6 @@ libgl1-mesa-dri \
 libgl1-mesa-glx \
 mesa-utils \
 xdg-utils && \
-
-# SELECTION DE LA LANGUE
-echo ${LANG} > /etc/locale.gen && locale-gen && \
 
 # AJOUT UTILISATEUR
 useradd -d /home/${USER} -m ${USER} && \
