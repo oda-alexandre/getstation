@@ -42,10 +42,10 @@ USER ${USER}
 WORKDIR /home/${USER}
 
 # INSTALLATION DE L'APPLICATION
-RUN wget ${APP} -O /home/${USER}/browserX-1.42.1-x86_64.AppImage && \
+RUN wget ${APP} -O /home/${USER}/browserX.AppImage && \
 sudo addgroup fuse && \
 sudo adduser ${USER} fuse && \
-sudo chmod +x browserX-1.42.1-x86_64.AppImage && \
+sudo chmod +x browserX.AppImage && \
 
 # NETTOYAGE
 sudo apt-get --purge autoremove -y \
@@ -56,4 +56,4 @@ sudo rm -rf /var/cache/apt/archives/* && \
 sudo rm -rf /var/lib/apt/lists/*
 
 # COMMANDE AU DEMARRAGE DU CONTENEUR
-ENTRYPOINT ./browserX-1.42.1-x86_64.AppImage
+ENTRYPOINT ./browserX.AppImage
