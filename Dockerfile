@@ -5,7 +5,6 @@ MAINTAINER https://www.oda-alexandre.com/
 # VARIABLES
 ENV USER getstation
 ENV APP https://dl.getstation.com/download/linux_64?filetype=AppImage
-ENV LANG fr_FR.UTF-8
 ENV DEBIAN_FRONTEND noninteractive
 
 # INSTALLATION DES PREREQUIS
