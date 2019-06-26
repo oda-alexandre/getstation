@@ -14,10 +14,7 @@
 
 ## BADGES
 
-[![version](https://images.microbadger.com/badges/version/alexandreoda/app.svg)](https://microbadger.com/images/alexandreoda/app)
-[![size](https://images.microbadger.com/badges/image/alexandreoda/app.svg)](https://microbadger.com/images/alexandreoda/app")
-[![build](https://img.shields.io/docker/build/alexandreoda/app.svg)](https://hub.docker.com/r/alexandreoda/app)
-[![automated](https://img.shields.io/docker/automated/alexandreoda/app.svg)](https://hub.docker.com/r/alexandreoda/app)
+[![pipeline status](https://gitlab.com/oda-alexandre/getstation/badges/master/pipeline.svg)](https://gitlab.com/oda-alexandre/getstation/commits/master)
 
 
 ## INTRODUCTION
