@@ -7,8 +7,8 @@
 
 - [Badges](#BADGES)
 - [Introduction](#INTRODUCTION)
-- [Prerequis](#PREREQUIS)
-- [Installation](#INSTALLATION)
+- [PREREQUISITESites](#PREREQUISITESITES)
+- [Install](#INSTALL)
 - [License](#LICENSE)
 
 
@@ -19,19 +19,25 @@
 
 ## INTRODUCTION
 
-Ce repository contient le Dockerfile de
+Ce repository contient the Dockerfile de
 
 - [getstation](https://github.com/tristanheaven/getstation)
 
-Mis à jour automatiquement dans le [docker hub public](https://hub.docker.com/r/alexandreoda/getstation).
+Continuous integration on :
+
+- [gitlab](https://gitlab.com/oda-alexandre/getstation/pipelines)
+
+automatically updated on :
+
+- [docker hub public](https://hub.docker.com/r/alexandreoda/getstation).
 
 
-## PREREQUIS
+## PREREQUISITES
 
-Installer [docker](https://www.docker.com)
+Use [docker](https://www.docker.com)
 
 
-## INSTALLATION
+## INSTALL
 
 ```
 docker run -d --name getstation -v ${HOME}/Downloads:/home/getstation/Downloads -v /tmp/.X11-unix/:/tmp/.X11-unix/ -v /dev/snd:/dev/snd -v /dev/shm:/dev/shm -v /var/run/dbus:/var/run/dbus -v /etc/localtime:/etc/localtime:ro -e PULSE_SERVER=unix:${XDG_RUNTIME_DIR}/pulse/native -v ${XDG_RUNTIME_DIR}/pulse/native:${XDG_RUNTIME_DIR}/pulse/native --group-add $(getent group audio | cut -d: -f3) -v /lib/modules:/lib/modules --privileged --cap-add=ALL -e DISPLAY alexandreoda/getstation
@@ -40,4 +46,4 @@ docker run -d --name getstation -v ${HOME}/Downloads:/home/getstation/Downloads 
 
 ## LICENSE
 
-[![GPLv3+](http://gplv3.fsf.org/gplv3-127x51.png)](https://github.com/oda-alexandre/getstation/blob/master/LICENSE)
+[![GPLv3+](http://gplv3.fsf.org/gplv3-127x51.png)](https://gitlab.com/oda-alexandre/getstation/blob/master/LICENSE)
