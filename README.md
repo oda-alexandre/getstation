@@ -1,6 +1,6 @@
 # GETSTATION
 
-<img src="https://station-website.cdn.prismic.io/station-website%2F56c6c214-38ea-4449-bba2-93f9b7807c0e_logo-station-blue.svg" />
+<img src="https://station-website.cdn.prismic.io/station-website%2F56c6c214-38ea-4449-bba2-93f9b7807c0e_logo-station-blue.svg" width="200" height="200"/>
 
 
 ## INDEX
