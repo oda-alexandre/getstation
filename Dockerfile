@@ -3,12 +3,14 @@ FROM debian:stretch-slim
 MAINTAINER https://www.oda-alexandre.com/
 
 ENV USER getstation
+ENV LANG fr_FR.UTF-8
 ENV DEBIAN_FRONTEND noninteractive
 ENV APP https://dl.getstation.com/download/linux_64?filetype=AppImage
 
 RUN echo -e '\033[36;1m ******* INSTALL PACKAGES ******** \033[0m' && \
 apt-get update && apt-get install -y --no-install-recommends \
 sudo \
+locales \
 ca-certificates \
 dirmngr \
 wget \
@@ -27,6 +29,9 @@ libgl1-mesa-dri \
 libgl1-mesa-glx \
 mesa-utils \
 xdg-utils
+
+RUN echo -e '\033[36;1m ******* CHANGE LOCALES ******** \033[0m' && \
+echo ${LANG} > /etc/locale.gen && locale-gen
 
 RUN echo -e '\033[36;1m ******* ADD USER ******** \033[0m' && \
 useradd -d /home/${USER} -m ${USER} && \
