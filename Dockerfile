@@ -45,10 +45,11 @@ RUN echo -e '\033[36;1m ******* SELECT WORKING SPACE ******** \033[0m'
 WORKDIR /home/${USER}
 
 RUN echo -e '\033[36;1m ******* INSTALL APP ******** \033[0m' && \
-wget ${APP} -O /home/${USER}/browserX.AppImage && \
+mkdir appimage && \
+wget ${APP} -O /home/${USER}/appimage/browserX.AppImage && \
 sudo addgroup fuse && \
 sudo adduser ${USER} fuse && \
-sudo chmod +x browserX.AppImage
+sudo chmod +x appimage/browserX.AppImage
 
 RUN echo -e '\033[36;1m ******* CLEANING ******** \033[0m' && \
 sudo apt-get --purge autoremove -y \
@@ -57,6 +58,9 @@ sudo apt-get autoclean -y && \
 sudo rm /etc/apt/sources.list && \
 sudo rm -rf /var/cache/apt/archives/* && \
 sudo rm -rf /var/lib/apt/lists/*
+
+RUN echo -e '\033[36;1m ******* SELECT WORKING SPACE ******** \033[0m'
+WORKDIR /home/${USER}/appimage
 
 RUN echo -e '\033[36;1m ******* CONTAINER START COMMAND ******** \033[0m'
 ENTRYPOINT ./browserX.AppImage \
