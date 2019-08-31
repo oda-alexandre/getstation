@@ -5,6 +5,7 @@ LABEL authors https://www.oda-alexandre.com/
 ENV USER getstation
 ENV LANG fr_FR.UTF-8
 ENV DEBIAN_FRONTEND noninteractive
+ENV VERSION 1.47.0
 ENV APP https://dl.getstation.com/download/linux_64?filetype=AppImage
 
 RUN echo -e '\033[36;1m ******* INSTALL PACKAGES ******** \033[0m' && \
