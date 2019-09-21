@@ -9,7 +9,7 @@ ENV VERSION 1.47.0
 ENV APP https://dl.getstation.com/download/linux_64?filetype=AppImage
 
 RUN echo -e '\033[36;1m ******* INSTALL PACKAGES ******** \033[0m' && \
-apt-get update && apt-get install -y --no-install-recommends \
+apt update && apt install -y --no-install-recommends \
 sudo \
 locales \
 ca-certificates \
