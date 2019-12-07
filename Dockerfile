@@ -8,7 +8,7 @@ ENV DEBIAN_FRONTEND noninteractive
 ENV VERSION 1.47.0
 ENV APP https://dl.getstation.com/download/linux_64?filetype=AppImage
 
-RUN echo -e '\033[36;1m ******* INSTALL PACKAGES ******** \033[0m' && \
+RUN echo -e '\033[36;1m ******* INSTALL PACKAGES ******** \033[0m'; \
 apt update && apt install -y --no-install-recommends \
 sudo \
 locales \
@@ -31,30 +31,30 @@ libgl1-mesa-glx \
 mesa-utils \
 xdg-utils
 
-RUN echo -e '\033[36;1m ******* CHANGE LOCALES ******** \033[0m' && \
+RUN echo -e '\033[36;1m ******* CHANGE LOCALES ******** \033[0m'; \
 echo ${LANG} > /etc/locale.gen && locale-gen
 
-RUN echo -e '\033[36;1m ******* ADD USER ******** \033[0m' && \
-useradd -d /home/${USER} -m ${USER} && \
-passwd -d ${USER} && \
+RUN echo -e '\033[36;1m ******* ADD USER ******** \033[0m'; \
+useradd -d /home/${USER} -m ${USER}; \
+passwd -d ${USER}; \
 adduser ${USER} sudo
 
-RUN echo -e '\033[36;1m ******* INSTALL APP ******** \033[0m' && \
-mkdir appimage && \
-wget ${APP} -O appimage/browserX.AppImage && \
-addgroup fuse && \
-adduser getstation fuse && \
+RUN echo -e '\033[36;1m ******* INSTALL APP ******** \033[0m'; \
+mkdir appimage; \
+wget ${APP} -O appimage/browserX.AppImage; \
+addgroup fuse; \
+adduser getstation fuse; \
 chmod +x appimage/browserX.AppImage
 
 RUN echo -e '\033[36;1m ******* SELECT USER ******** \033[0m'
 USER ${USER}
 
-RUN echo -e '\033[36;1m ******* CLEANING ******** \033[0m' && \
+RUN echo -e '\033[36;1m ******* CLEANING ******** \033[0m'; \
 sudo apt-get --purge autoremove -y \
-wget && \
-sudo apt-get autoclean -y && \
-sudo rm /etc/apt/sources.list && \
-sudo rm -rf /var/cache/apt/archives/* && \
+wget; \
+sudo apt-get autoclean -y; \
+sudo rm /etc/apt/sources.list; \
+sudo rm -rf /var/cache/apt/archives/*; \
 sudo rm -rf /var/lib/apt/lists/*
 
 RUN echo -e '\033[36;1m ******* CONTAINER START COMMAND ******** \033[0m'
