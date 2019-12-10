@@ -14,6 +14,8 @@ RUN echo -e '\033[36;1m ******* INSTALL PACKAGES ******** \033[0m'; \
   dirmngr \
   wget \
   fuse \
+  firefox-esr \
+  firefox-esr-l10n-fr \
   libgtk2.0-0 \
   libgtk-3-0 \
   libnss3 \
