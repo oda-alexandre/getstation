@@ -26,6 +26,7 @@ RUN echo -e '\033[36;1m ******* INSTALL PACKAGES ******** \033[0m'; \
   alsa-utils \
   libcanberra-gtk-module \
   libcanberra-gtk3-module \
+  numix-icon-theme-circle \
   libgl1-mesa-dri \
   libgl1-mesa-glx \
   mesa-utils \
