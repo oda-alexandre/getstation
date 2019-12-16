@@ -3,11 +3,12 @@ FROM debian:stretch-slim
 LABEL authors https://www.oda-alexandre.com/
 
 ENV USER getstation
+ENV HOME /home/${USER}
 ENV LOCALES fr_FR.UTF-8
 ENV APP https://dl.getstation.com/download/linux_64?filetype=AppImage
 
 RUN echo -e '\033[36;1m ******* INSTALL PACKAGES ******** \033[0m'; \
-  apt update && apt install -y --no-install-recommends \
+  apt-get update && apt-get install -y --no-install-recommends \
   sudo \
   locales \
   ca-certificates \
@@ -36,7 +37,7 @@ RUN echo -e '\033[36;1m ******* CHANGE LOCALES ******** \033[0m'; \
   locale-gen ${LOCALES}
 
 RUN echo -e '\033[36;1m ******* ADD USER ******** \033[0m'; \
-  useradd -d /home/${USER} -m ${USER}; \
+  useradd -d ${HOME} -m ${USER}; \
   passwd -d ${USER}; \
   adduser ${USER} sudo
 
