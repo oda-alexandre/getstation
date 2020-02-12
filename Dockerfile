@@ -45,7 +45,7 @@ RUN echo -e '\033[36;1m ******* INSTALL APP ******** \033[0m' && \
   mkdir appimage && \
   wget ${APP} -O appimage/browserX.AppImage && \
   addgroup fuse && \
-  adduser getstation fuse && \
+  adduser ${USER} fuse && \
   chmod +x appimage/browserX.AppImage
 
 RUN echo -e '\033[36;1m ******* SELECT USER ******** \033[0m'
