@@ -14,7 +14,6 @@ RUN echo -e '\033[36;1m ******* INSTALL PACKAGES ******** \033[0m' && \
   wget \
   fuse \
   firefox-esr \
-  firefox-esr-l10n-fr \
   libgtk-3-0 \
   libnss3 \
   libasound2 \
@@ -28,7 +27,14 @@ RUN echo -e '\033[36;1m ******* INSTALL PACKAGES ******** \033[0m' && \
   libgl1-mesa-glx \
   mesa-utils \
   xdg-utils \
-  libsecret-1-0
+  libsecret-1-0 && \
+  \
+  echo -e '\033[36;1m ******* CLEANING ******** \033[0m' && \
+  apt-get --purge autoremove -y && \
+  apt-get autoclean -y && \
+  rm /etc/apt/sources.list && \
+  rm -rf /var/cache/apt/archives/* && \
+  rm -rf /var/lib/apt/lists/*
 
 RUN echo -e '\033[36;1m ******* ADD USER ******** \033[0m' && \
   useradd -d ${HOME} -m ${USER} && \
@@ -38,20 +44,13 @@ RUN echo -e '\033[36;1m ******* ADD USER ******** \033[0m' && \
 RUN echo -e '\033[36;1m ******* INSTALL APP ******** \033[0m' && \
   mkdir appimage && \
   wget ${APP} -O appimage/browserX.AppImage && \
+  apt-get --purge autoremove -y wget && \
   addgroup fuse && \
   adduser ${USER} fuse && \
   chmod +x appimage/browserX.AppImage
 
 RUN echo -e '\033[36;1m ******* SELECT USER ******** \033[0m'
 USER ${USER}
-
-RUN echo -e '\033[36;1m ******* CLEANING ******** \033[0m' && \
-  sudo apt-get --purge autoremove -y \
-  wget && \
-  sudo apt-get autoclean -y && \
-  sudo rm /etc/apt/sources.list && \
-  sudo rm -rf /var/cache/apt/archives/* && \
-  sudo rm -rf /var/lib/apt/lists/*
 
 RUN echo -e '\033[36;1m ******* CONTAINER START COMMAND ******** \033[0m'
 ENTRYPOINT appimage/browserX.AppImage --no-sandbox \
