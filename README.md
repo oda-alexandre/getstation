@@ -1,6 +1,6 @@
 # GETSTATION
 
-![logo](https://assets.gitlab-static.net/uploads/-/system/project/avatar/12904447/index.png) width="200" height="200"/>
+![logo](https://assets.gitlab-static.net/uploads/-/system/project/avatar/12904447/index.png)
 
 ## INDEX
 
