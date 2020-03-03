@@ -27,8 +27,8 @@ RUN echo -e '\033[36;1m ******* INSTALL PACKAGES ******** \033[0m' && \
   libgl1-mesa-glx \
   mesa-utils \
   xdg-utils \
-  libsecret-1-0 && \
-  \
+  libsecret-1-0 \
+  && \
   echo -e '\033[36;1m ******* CLEANING ******** \033[0m' && \
   apt-get --purge autoremove -y && \
   apt-get autoclean -y && \
