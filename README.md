@@ -1,12 +1,13 @@
 # GETSTATION
 
-![logo](https://assets.gitlab-static.net/uploads/-/system/project/avatar/12904447/index.png)
+![logo](https://assets.gitlab-static.net/uploads/-/system/project/avatar/12904447/index.png) width="200" height="200"/>
 
 ## INDEX
 
 - [GETSTATION](#getstation)
   - [INDEX](#index)
   - [BADGES](#badges)
+  - [FIRST UPDATE](#first-update)
   - [INTRODUCTION](#introduction)
   - [PREREQUISITES](#prerequisites)
   - [INSTALL](#install)
@@ -15,6 +16,10 @@
 ## BADGES
 
 [![pipeline status](https://gitlab.com/oda-alexandre/getstation/badges/master/pipeline.svg)](https://gitlab.com/oda-alexandre/getstation/commits/master)
+
+## FIRST UPDATE
+
+Date: 01-01-01
 
 ## INTRODUCTION
 
