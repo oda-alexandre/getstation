@@ -46,7 +46,24 @@ Use [docker](https://www.docker.com)
 ### DOCKER RUN
 
 ```\
-docker  run -d --name getstation -v ${HOME}:/home/getstation -v /tmp/.X11-unix/:/tmp/.X11-unix/ -v /dev/shm:/dev/shm -v /var/run/dbus:/var/run/dbus -v /etc/localtime:/etc/localtime:ro -e PULSE_SERVER=unix:${XDG_RUNTIME_DIR}/pulse/native -v ${XDG_RUNTIME_DIR}/pulse/native:${XDG_RUNTIME_DIR}/pulse/native --group-add audio --device /dev/snd -v /lib/modules:/lib/modules --privileged -p 80 -p 443 --cap-add=SYS_ADMIN -e DISPLAY alexandreoda/getstation
+docker run -d \
+--name getstation \
+--privileged \
+--group-add audio \
+--cap-add=SYS_ADMIN \
+--device /dev/snd \
+-e DISPLAY \
+-e PULSE_SERVER=unix:${XDG_RUNTIME_DIR}/pulse/native \
+-v ${HOME}:/home/getstation \
+-v /tmp/.X11-unix/:/tmp/.X11-unix/ \
+-v /dev/shm:/dev/shm \
+-v /var/run/dbus:/var/run/dbus \
+-v /etc/localtime:/etc/localtime:ro \
+-v ${XDG_RUNTIME_DIR}/pulse/native:${XDG_RUNTIME_DIR}/pulse/native \
+-v /lib/modules:/lib/modules \
+-p 80 \
+-p 443 \
+alexandreoda/getstation
 ```
 
 ### DOCKER COMPOSE
