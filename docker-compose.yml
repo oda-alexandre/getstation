@@ -1,0 +1,26 @@
+version: "3.7"
+
+services:
+  getstation:
+    container_name: getstation
+    image: alexandreoda/getstation
+    restart: "no"
+    privileged: true
+    cap_add:
+      - SYS_ADMIN
+    devices:
+      - /dev/snd
+    environment:
+      - DISPLAY
+      - PULSE_SERVER=unix:${XDG_RUNTIME_DIR}/pulse/native
+    volumes:
+      - "${HOME}:/home/getstation"
+      - "/tmp/.X11-unix/:/tmp/.X11-unix/"
+      - "/dev/shm:/dev/shm"
+      - "/var/run/dbus:/var/run/dbus"
+      - "/etc/localtime:/etc/localtime:ro"
+      - "/lib/modules:/lib/modules"
+      - "${XDG_RUNTIME_DIR}/pulse/native:${XDG_RUNTIME_DIR}/pulse/native"
+    ports:
+      - "443"
+      - "80"
