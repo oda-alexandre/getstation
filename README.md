@@ -49,6 +49,7 @@ Use [docker](https://www.docker.com)
 docker run -d \
 --name getstation \
 --privileged \
+--network host \
 --group-add audio \
 --cap-add=SYS_ADMIN \
 --device /dev/snd \
@@ -61,8 +62,6 @@ docker run -d \
 -v /etc/localtime:/etc/localtime:ro \
 -v ${XDG_RUNTIME_DIR}/pulse/native:${XDG_RUNTIME_DIR}/pulse/native \
 -v /lib/modules:/lib/modules \
--p 80 \
--p 443 \
 alexandreoda/getstation
 ```
 
@@ -77,6 +76,7 @@ services:
     image: alexandreoda/getstation
     restart: "no"
     privileged: true
+    network_mode: host
     cap_add:
       - SYS_ADMIN
     devices:
