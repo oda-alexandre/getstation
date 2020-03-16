@@ -6,6 +6,7 @@ services:
     image: alexandreoda/getstation
     restart: "no"
     privileged: true
+    network_mode: host
     cap_add:
       - SYS_ADMIN
     devices:
@@ -21,6 +22,3 @@ services:
       - "/etc/localtime:/etc/localtime:ro"
       - "/lib/modules:/lib/modules"
       - "${XDG_RUNTIME_DIR}/pulse/native:${XDG_RUNTIME_DIR}/pulse/native"
-    ports:
-      - "443"
-      - "80"

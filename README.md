@@ -92,9 +92,6 @@ services:
       - "/etc/localtime:/etc/localtime:ro"
       - "/lib/modules:/lib/modules"
       - "${XDG_RUNTIME_DIR}/pulse/native:${XDG_RUNTIME_DIR}/pulse/native"
-    ports:
-      - "443"
-      - "80"
 ```
 
 ## LICENSE
