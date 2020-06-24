@@ -2,8 +2,6 @@
 
 ![logo](https://assets.gitlab-static.net/uploads/-/system/project/avatar/12904447/index.png)
 
-## INDEX
-
 - [GETSTATION](#getstation)
   - [INDEX](#index)
   - [BADGES](#badges)
@@ -41,7 +39,7 @@ Automatically updated on :
 
 Use [docker](https://www.docker.com)
 
-## INSTALL
+## BUILD
 
 ### DOCKER RUN
 
